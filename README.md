@@ -10,6 +10,13 @@ InsightForge takes the repetitive first hour of any data science project — loa
 
 ---
 
+<img width="1892" height="875" alt="Screenshot 2026-07-23 133508" src="https://github.com/user-attachments/assets/c3443a5b-e0ac-4fe3-ae34-6302f1896cdc" />
+<img width="1917" height="956" alt="Screenshot 2026-07-23 133532" src="https://github.com/user-attachments/assets/6a7c35d0-57d2-4b0b-a3fc-3989b8bb7bb0" />
+<img width="1905" height="942" alt="Screenshot 2026-07-23 133706" src="https://github.com/user-attachments/assets/1556f700-c8e1-478f-9d7f-073150d409df" />
+<img width="1913" height="985" alt="Screenshot 2026-07-23 134138" src="https://github.com/user-attachments/assets/e19c4d29-b0c7-4708-8983-655d01c50b19" />
+
+---
+
 ## ✨ Features
 
 - **Universal upload** — CSV, Excel (`.xlsx`/`.xls`), JSON, Parquet, TSV/TXT
