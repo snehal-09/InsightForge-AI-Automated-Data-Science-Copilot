@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>InsightForge — Turn raw data into a finished notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/frontend/css/style.css" />
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">
+      <svg viewBox="0 0 32 32" width="26" height="26" fill="none">
+        <path d="M16 2 L28 9 V23 L16 30 L4 23 V9 Z" stroke="url(#g1)" stroke-width="1.6"/>
+        <path d="M16 9 L22 12.5 V19.5 L16 23 L10 19.5 V12.5 Z" fill="url(#g1)" opacity="0.85"/>
+        <defs>
+          <linearGradient id="g1" x1="4" y1="2" x2="28" y2="30">
+            <stop offset="0" stop-color="#ff8a3d"/>
+            <stop offset="1" stop-color="#7c6cff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </span>
+    <span class="brand-name">InsightForge</span>
+  </div>
+  <div class="topbar-tag">raw data → forged notebook</div>
+</header>
+
+<main>
+
+  <!-- ============ HERO / UPLOAD ============ -->
+  <section id="hero" class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Automated EDA + notebook builder</p>
+      <h1>Drop your data.<br><span class="heat-text">Forge</span> a notebook.</h1>
+      <p class="hero-sub">CSV, Excel, JSON or Parquet in — a clean dashboard and a fully runnable Jupyter notebook, complete with charts, out.</p>
+    </div>
+
+    <div class="hero-drop">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload dataset">
+        <input id="file-input" type="file" accept=".csv,.xlsx,.xls,.json,.parquet,.tsv,.txt" hidden />
+        <div class="dz-icon">
+          <svg viewBox="0 0 48 48" width="42" height="42" fill="none">
+            <path d="M24 6 V30 M24 6 L15 15 M24 6 L33 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 30 V38 A2 2 0 0 0 10 40 H38 A2 2 0 0 0 40 38 V30" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="dz-title">Drag a file here, or click to browse</p>
+        <p class="dz-sub">.csv · .xlsx · .json · .parquet · up to 100MB</p>
+      </div>
+
+      <!-- forge heat bar: doubles as progress + status -->
+      <div id="forge-bar" class="forge-bar" hidden>
+        <div class="forge-bar-track">
+          <div id="forge-bar-fill" class="forge-bar-fill"></div>
+        </div>
+        <p id="forge-status" class="forge-status">Reading file…</p>
+      </div>
+
+      <p id="upload-error" class="upload-error" hidden></p>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD (hidden until analyzed) ============ -->
+  <section id="dashboard" class="dashboard" hidden>
+
+    <div class="dash-head">
+      <div>
+        <p class="eyebrow">Now forging</p>
+        <h2 id="dataset-name">dataset.csv</h2>
+      </div>
+      <button id="new-upload-btn" class="ghost-btn">Analyze another file</button>
+    </div>
+
+    <div class="stat-grid" id="stat-grid"><!-- stat cards injected --></div>
+
+    <div class="panel insights-panel">
+      <h3>Automated findings</h3>
+      <ul id="insights-list"></ul>
+      <p id="ai-summary" class="ai-summary" hidden></p>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Column breakdown</h3>
+      </div>
+      <div class="table-wrap">
+        <table id="columns-table">
+          <thead><tr><th>Column</th><th>Type</th><th>Missing</th><th>Unique</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Visual exploration</h3>
+      <div id="charts-grid" class="charts-grid"></div>
+    </div>
+
+    <!-- ============ NOTEBOOK CAST ============ -->
+    <div class="panel cast-panel">
+      <div class="cast-copy">
+        <h3>Cast this into a notebook</h3>
+        <p>Every chart above, plus data loading, cleaning suggestions and next steps — bundled into one runnable <code>.ipynb</code> file.</p>
+      </div>
+      <button id="build-notebook-btn" class="cast-btn">
+        <span class="cast-btn-label">Build notebook</span>
+      </button>
+      <a id="download-btn" class="cast-btn cast-btn--ready" hidden href="#">
+        <span class="cast-btn-label">Download .ipynb</span>
+      </a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>InsightForge AI Copilot — analysis runs entirely on pandas, matplotlib &amp; seaborn.</span>
+</footer>
+
+<script src="/frontend/js/app.js"></script>
+</body>
+</html>
