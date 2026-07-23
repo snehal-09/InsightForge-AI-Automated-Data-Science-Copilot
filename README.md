@@ -110,7 +110,3 @@ InsightForge/
 | `GET` | `/api/download-notebook/{session_id}` | Download the generated notebook |
 | `GET` | `/api/health` | Health check |
 
-
-## 📄 License
-
-MIT — see [LICENSE](LICENSE) for details.
